@@ -30,8 +30,6 @@
 
     @include('layouts.footer.index')
 
-    @vite('resources/js/app.js')
-
     @yield('script')
 
     <script>
