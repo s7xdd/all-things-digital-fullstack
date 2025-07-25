@@ -14,6 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('build/assets/app-4ff17481.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-6a406d76.css') }}">
+
 
     {!! SEO::generate() !!}
 
@@ -31,11 +34,14 @@
     @include('layouts.footer.index')
 
     @vite('resources/js/app.js')
+    <script type="module" src="{{ asset('build/assets/app-638fbbf4.js') }}"></script>
+
 
     @yield('script')
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Toastr options
             toastr.options = {
                 closeButton: true,
                 progressBar: true,
@@ -48,12 +54,14 @@
                 hideMethod: "fadeOut"
             };
 
+            // CSRF setup for Ajax
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 }
             });
 
+            // Toast Notifications
             @if (session('success'))
                 toastr.success(@json(session('success')));
             @endif
@@ -62,6 +70,7 @@
                 toastr.error(@json(session('error')));
             @endif
 
+            // Counter Button Logic
             $('.counter-input').each(function() {
                 const productId = this.id.split('_')[1];
                 const maxQuantity = parseInt(
