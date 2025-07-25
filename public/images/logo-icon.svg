@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261.51 261.51">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #307fc2;
+      }
+
+      .cls-2 {
+        fill: #3da4dc;
+      }
+
+      .cls-3 {
+        fill: #87d4eb;
+      }
+
+      .cls-4 {
+        fill: #224fa3;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g>
+      <rect class="cls-1" x="154.76" y="154.76" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="199.32" y="199.32" width="22.32" height="22.32"/>
+      <rect class="cls-3" x="243.89" y="243.89" width="12.92" height="12.92"/>
+      <rect class="cls-1" x="194.62" y="114.89" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="239.19" y="159.46" width="22.32" height="22.32"/>
+      <rect class="cls-1" x="75.03" y="154.76" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="39.86" y="199.32" width="22.32" height="22.32"/>
+      <rect class="cls-3" x="4.7" y="243.89" width="12.92" height="12.92"/>
+      <rect class="cls-1" x="75.03" y="75.03" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="39.86" y="39.86" width="22.32" height="22.32"/>
+      <rect class="cls-3" x="4.7" y="4.7" width="12.92" height="12.92"/>
+      <rect class="cls-4" x="110.19" y="110.19" width="41.13" height="41.13"/>
+      <rect class="cls-1" x="114.89" y="35.16" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="79.73" width="22.32" height="22.32"/>
+      <rect class="cls-1" x="35.16" y="114.89" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="0" y="79.73" width="22.32" height="22.32"/>
+      <rect class="cls-2" x="0" y="159.46" width="22.32" height="22.32"/>
+      <rect class="cls-1" x="114.89" y="194.62" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="79.73" y="239.18" width="22.32" height="22.32"/>
+      <rect class="cls-2" x="159.46" y="239.19" width="22.32" height="22.32"/>
+      <rect class="cls-1" x="154.76" y="75.03" width="31.72" height="31.72"/>
+      <rect class="cls-2" x="199.32" y="39.86" width="22.32" height="22.32"/>
+      <rect class="cls-3" x="243.89" y="4.7" width="12.92" height="12.92"/>
+      <rect class="cls-2" x="159.46" y="0" width="22.32" height="22.32"/>
+      <rect class="cls-2" x="239.18" y="79.73" width="22.32" height="22.32"/>
+    </g>
+  </g>
+</svg>
