@@ -147,6 +147,7 @@ class PageController extends Controller
             $page->image3               = $request->has('image3') ? $request->image3 : NULL;
             $page->image4              = $request->has('image4') ? $request->image4 : NULL;
             $page->image5              = $request->has('image5') ? $request->image5 : NULL;
+            $page->image6              = $request->has('image6') ? $request->image6 : NULL;
             $page->save();
 
             $page_translation                       = PageTranslation::firstOrNew(['lang' => $request->lang, 'page_id' => $page->id]);
