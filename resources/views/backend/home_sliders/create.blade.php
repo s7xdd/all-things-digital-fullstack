@@ -29,7 +29,7 @@
                                 </label>
                                 <div class="col-md-9">
                                     <input type="text" placeholder="{{ ucfirst(str_replace('_', ' ', $key)) }}"
-                                        id="{{ $key }}" name="{{ $key }}" class="form-control" required>
+                                        id="{{ $key }}" name="{{ $key }}" class="form-control" >
                                     @error($key)
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
