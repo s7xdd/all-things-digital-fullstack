@@ -131,25 +131,6 @@
                     <h5 class="mb-0 ml-3">Our Mission/Vision Section</h5>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-from-label" for="name">{{ trans('messages.heading') }} <span
-                            class="text-danger">*</span> </label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter.." name="heading2"
-                            value="{{ $page->getTranslation('heading2', $lang) }}" required>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-from-label" for="name">{{ trans('messages.content') }} <span
-                            class="text-danger">*</span></label>
-                    <div class="col-sm-10">
-                        <textarea class=" form-control" placeholder="Enter.." name="content1" rows="5" required>{!! $page->getTranslation('content1', $lang) !!}</textarea>
-                    </div>
-                </div>
-
-
-
                 @php
                     $ourMission = json_decode($page->getTranslation('heading1', $lang), true) ?? [];
                 @endphp

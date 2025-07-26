@@ -13,4 +13,3 @@
     @include('sections.about.cta')
 
 @endsection
-a
