@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-
+{{--
                 <div class="form-group row">
                     <label class="col-sm-2 col-from-label" for="sub_heading2">Email <span class="text-danger">*</span>
                     </label>
@@ -74,7 +74,7 @@
                         <input type="email" class="form-control" placeholder="Enter.." name="heading4"
                             value="{{ $page->getTranslation('heading4', $lang) }}">
                     </div>
-                </div>
+                </div> --}}
 
 
                 <div class="form-group row">
