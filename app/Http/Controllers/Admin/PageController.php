@@ -105,10 +105,9 @@ class PageController extends Controller
 
                 $categories = Category::where('parent_id', 0)->where('is_active', 1)->with('childrenCategories')->get();
 
-                $brands = Brand::where('is_active', 1)->orderBy('name', 'asc')->get();
                 $services = Service::where('status', 1)->orderBy('name', 'asc')->get();
 
-                return view('backend.website_settings.pages.home_page_edit', compact('page', 'services', 'categories', 'brands', 'lang', 'page_id'));
+                return view('backend.website_settings.pages.home_page_edit', compact('page', 'services', 'categories', 'lang', 'page_id'));
             } else if ($id == 'blogs' || $id == 'product_list' || $id == 'service_list' || $id == 'tutorials') {
                 return view('backend.website_settings.pages.blog_listing', compact('page', 'lang', 'page_id'));
             } else if ($id == 'contact_us') {
