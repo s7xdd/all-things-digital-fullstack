@@ -16,7 +16,7 @@
                     <h2 id="about-title" class="font-bold text-2xl md:text-3xl text-[#2256ac] mb-4">
                         {{ $mission['title'] ?? 'Title ' . ($index + 1) }}
                     </h2>
-                    <p id="about-text" class="text-gray-700 font-normal leading-relaxed text-lg mb-3">
+                    <p id="about-text" class="text-gray-700 font-normal leading-relaxed mb-3">
                         {!! $mission['description'] ?? 'Description ' . ($index + 1) !!}
                     </p>
                 </div>
