@@ -3,10 +3,7 @@
         <div class="swiper-wrapper">
             @foreach ($slider as $slide)
                 @php
-                    $video =
-                        $slide['video_file'] && $slide['video_file'] !== null
-                            ? uploaded_asset($slide['video_file'])
-                            : null;
+                    $video = $slide['video_file'] ? asset('storage/' . $slide['video_file']) : null;
                     $image = !$video && $slide['image'] ? uploaded_asset($slide['image']) : null;
                 @endphp
 
