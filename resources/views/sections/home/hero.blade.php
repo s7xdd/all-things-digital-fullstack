@@ -24,41 +24,50 @@
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/90"></div>
 
                     <div class="absolute bottom-0 left-0 z-10 w-full flex">
-                        <div class="max-w-2xl w-full pb-8 sm:pb-14 px-3 sm:px-6 lg:pl-16"
-                            id="hero-slide-content-{{ $slide['id'] }}">
-                            @if ($slide['name'])
-                                <h1
-                                    class="gsap-animate split-text text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 text-white leading-tight">
-                                    @php
-                                        $text = $slide['name'];
-                                        $formattedText = preg_replace(
-                                            '/\[(.*?)\]/',
-                                            '<span class="text-primary">$1</span>',
-                                            $text,
-                                        );
-                                    @endphp
+                        <x-container>
+                            <div class="max-w-2xl w-full pb-8 sm:pb-14" id="hero-slide-content-{{ $slide['id'] }}">
+                                @if ($slide['name'])
+                                    <h1
+                                        class="gsap-animate split-text text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 text-white leading-tight">
+                                        @php
+                                            $text = $slide['name'];
+                                            $formattedText = preg_replace(
+                                                '/\[(.*?)\]/',
+                                                '<span class="text-primary">$1</span>',
+                                                $text,
+                                            );
+                                        @endphp
 
-                                    {!! $formattedText !!}
-                                </h1>
-                            @endif
+                                        {!! $formattedText !!}
+                                    </h1>
+                                @endif
 
-                            @if ($slide['button1_text'] && $slide['button1_link'])
-                                <x-button-arrow href="{{ $slide['button1_link'] }}" text="{{ $slide['button1_text'] }}"
-                                    class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
-                            @endif
+                                @if ($slide['button1_text'] && $slide['button1_link'] && $slide['button2_text'] && $slide['button2_link'])
+                                    <div class="flex gap-4">
+                                        <x-button-arrow href="{{ $slide['button1_link'] }}" text="{{ $slide['button1_text'] }}"
+                                            class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
+                                        <x-button-arrow href="{{ $slide['button2_link'] }}" text="{{ $slide['button2_text'] }}"
+                                            class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
+                                    </div>
+                                @else
+                                    @if ($slide['button1_text'] && $slide['button1_link'])
+                                        <x-button-arrow href="{{ $slide['button1_link'] }}" text="{{ $slide['button1_text'] }}"
+                                            class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
+                                    @endif
 
-                            @if ($slide['button2_text'] && $slide['button2_link'])
-                                <x-button-arrow href="{{ $slide['button2_link'] }}" text="{{ $slide['button2_text'] }}"
-                                    class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
-                            @endif
-
-                        </div>
+                                    @if ($slide['button2_text'] && $slide['button2_link'])
+                                        <x-button-arrow href="{{ $slide['button2_link'] }}" text="{{ $slide['button2_text'] }}"
+                                            class="text-base sm:text-lg border-white bg-white text-gray-900 font-semibold rounded-none transition hover:bg-primary hover:text-white hover:border-primary" />
+                                    @endif
+                                @endif
+                            </div>
+                        </x-container>
                     </div>
                 </div>
             @endforeach
         </div>
 
-        <div class="absolute hidden bottom-9 sm:bottom-16 right-9 sm:right-24 md:flex gap-2 z-20">
+        <div class=" absolute hidden bottom-9 sm:bottom-[80px] right-[100px] sm:right-[100px] md:flex gap-2 z-20">
             <button id="hero-swiper-prev"
                 class="swiper-button-prev absolute !-left-[120px] !w-[50px] !h-[50px] bg-transparent border border-white text-white flex items-center justify-center hover:bg-primary hover:text-black hover:border-white transition"
                 type="button" aria-label="Previous slide">

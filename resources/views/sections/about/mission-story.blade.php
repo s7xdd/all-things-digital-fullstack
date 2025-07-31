@@ -1,29 +1,38 @@
-<section class="bg-white py-16 md:py-24">
+<section class="bg-white pt-16 md:pt-24">
     @php
         $ourMission = json_decode($page->getTranslation('heading1', $lang), true) ?? [];
     @endphp
 
     <div class="max-w-5xl mx-auto px-4">
         @foreach ($ourMission as $index => $mission)
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                @if ($index % 2 !== 0)
-                    <div class="{{ $index % 2 === 0 ? 'fade-right' : 'fade-left' }}">
-                        <img src="{{ uploaded_asset($mission['image']) }}" alt="Mission Image"
-                            class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full" loading="lazy">
-                    </div>
-                @endif
-                <div class="{{ $index % 2 === 0 ? 'fade-left' : 'fade-right' }}">
-                    <h2 id="about-title" class="font-bold text-2xl md:text-3xl text-[#2256ac] mb-4">
-                        {{ $mission['title'] ?? 'Title ' . ($index + 1) }}
-                    </h2>
-                    <p id="about-text" class="text-gray-700 font-normal leading-relaxed mb-3">
-                        {!! $mission['description'] ?? 'Description ' . ($index + 1) !!}
-                    </p>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-16">
                 @if ($index % 2 === 0)
-                    <div class="{{ $index % 2 === 0 ? 'fade-right' : 'fade-left' }}">
+                    {{-- Image left on md+, image above text on mobile --}}
+                    <div class="fade-right order-first md:order-first">
                         <img src="{{ uploaded_asset($mission['image']) }}" alt="Mission Image"
-                            class="rounded-lg shadow-lg w-full object-cover h-56 md:h-full" loading="lazy">
+                             class="rounded-lg shadow-lg w-full object-cover h-48 md:h-full" loading="lazy" />
+                    </div>
+                    <div class="fade-left order-last md:order-last">
+                        <h2 class="font-bold text-2xl md:text-3xl text-[#2256ac] mb-4">
+                            {{ $mission['title'] ?? 'Title ' . ($index + 1) }}
+                        </h2>
+                        <p class="text-gray-700 font-normal leading-relaxed mb-3">
+                            {!! $mission['description'] ?? 'Description ' . ($index + 1) !!}
+                        </p>
+                    </div>
+                @else
+                    {{-- Image right on md+, image below text on mobile --}}
+                    <div class="fade-left order-last md:order-first">
+                        <img src="{{ uploaded_asset($mission['image']) }}" alt="Mission Image"
+                             class="rounded-lg shadow-lg w-full object-cover h-48 md:h-full" loading="lazy" />
+                    </div>
+                    <div class="fade-right order-first md:order-last">
+                        <h2 class="font-bold text-2xl md:text-3xl text-[#2256ac] mb-4">
+                            {{ $mission['title'] ?? 'Title ' . ($index + 1) }}
+                        </h2>
+                        <p class="text-gray-700 font-normal leading-relaxed mb-3">
+                            {!! $mission['description'] ?? 'Description ' . ($index + 1) !!}
+                        </p>
                     </div>
                 @endif
             </div>

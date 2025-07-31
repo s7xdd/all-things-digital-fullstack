@@ -11,7 +11,7 @@
             {{ $page->getTranslation('content5', $lang) }}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 xl:gap-14 max-w-6xl mx-auto" id="why-cards">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 xl:gap-4 max-w-6xl mx-auto" id="why-cards">
 
             @foreach ($whyChoose as $item)
                 <div

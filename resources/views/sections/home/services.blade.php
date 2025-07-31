@@ -1,6 +1,6 @@
 <section class="py-20 bg-white" id="services-section">
     <x-container>
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid lg:grid-cols-2 gap-12">
             <div class="md:col-span-1" id="services-left" style="position:relative;">
                 <div class="sticky top-28">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-snug">
