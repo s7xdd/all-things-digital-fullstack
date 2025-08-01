@@ -9,33 +9,21 @@
 
     <link rel="icon" type="image/png" href="{{ uploaded_asset(get_setting('site_icon')) }}" />
 
+    {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{{ asset('build/assets/app-44a5d742.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/app-5157f989.css') }}">
-
-
+    {{-- Primary CSS --}}
     @vite('resources/css/app.css')
-    <script type="module" src="{{ asset('build/assets/app-39363393.js') }}"></script>
 
-
+    {{-- Gradient animation for loader --}}
     <style>
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
         #page-loader {
             background: linear-gradient(90deg, #224fa2, #3da4dc, #224fa2, #3da4dc);
             background-size: 400% 400%;
@@ -56,8 +44,7 @@
     <div id="page-loader" class="fixed inset-0 flex items-center justify-center z-50 opacity-100">
         <div class="flex items-center justify-center space-x-4">
             <!-- Rotating Site Icon -->
-            <img src="{{ uploaded_asset(get_setting('site_icon')) }}" alt="Site Icon"
-                class="w-16 h-16 rounded-full animate-spin" />
+            <img src="{{ uploaded_asset(get_setting('site_icon')) }}" alt="Site Icon" class="w-16 h-16 rounded-full animate-spin" />
             <!-- Loader Text -->
             <p class="text-white font-semibold text-lg">Loading...</p>
         </div>
@@ -78,7 +65,7 @@
     @yield('script')
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // ==================== Toastr Configuration ====================
             if (typeof toastr !== 'undefined') {
                 toastr.options = {
@@ -94,11 +81,11 @@
                 };
 
                 // Show flash notifications from Laravel session
-                @if (session('success'))
+                @if(session('success'))
                     toastr.success(@json(session('success')));
                 @endif
 
-                @if (session('error'))
+                @if(session('error'))
                     toastr.error(@json(session('error')));
                 @endif
             } else {
@@ -114,33 +101,31 @@
                 });
 
                 // Newsletter AJAX
-                $('#newsletter-form').on('submit', function(e) {
+                $('#newsletter-form').on('submit', function (e) {
                     e.preventDefault();
                     const email = $('#newsletter_email').val();
                     const token = $('input[name="_token"]').val();
 
                     $.post("{{ route('newsletter.subscribe') }}", {
-                            newsletter_email: email,
-                            _token: token
-                        })
-                        .done(function(response) {
-                            $('#messageNewsletter').text(response.success).css('color', '#00dc00');
-                            $('#newsletter_email').val('');
-                        })
-                        .fail(function(xhr) {
-                            const error = xhr.responseJSON?.errors?.newsletter_email?.[0] ||
-                                'An error occurred.';
-                            $('#messageNewsletter').text(error).css('color', 'red');
-                        });
+                        newsletter_email: email,
+                        _token: token
+                    })
+                    .done(function (response) {
+                        $('#messageNewsletter').text(response.success).css('color', '#00dc00');
+                        $('#newsletter_email').val('');
+                    })
+                    .fail(function (xhr) {
+                        const error = xhr.responseJSON?.errors?.newsletter_email?.[0] || 'An error occurred.';
+                        $('#messageNewsletter').text(error).css('color', 'red');
+                    });
                 });
             }
 
             // Quantity Buttons Initialization (if present)
             if (window.jQuery) {
-                $('.counter-input').each(function() {
+                $('.counter-input').each(function () {
                     const productId = this.id.split('_')[1];
-                    const maxQty = parseInt($('.increment-button[data-id="' + productId + '"]').data(
-                        'max-quantity')) || Infinity;
+                    const maxQty = parseInt($('.increment-button[data-id="' + productId + '"]').data('max-quantity')) || Infinity;
                     if (typeof updateButtonState === 'function') {
                         updateButtonState(productId, maxQty);
                     }
@@ -158,5 +143,4 @@
         });
     </script>
 </body>
-
 </html>
